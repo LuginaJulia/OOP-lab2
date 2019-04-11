@@ -250,48 +250,7 @@ namespace WindowsFormsApp1
                     {
                         addField(item, ref newObject, ref i);
                     }
-                }
-                ///
-                /*
-                foreach (PropertyInfo item in NewObjectProperties1)
-                {
-                    Type type = item.PropertyType;
-                    allTextBoxes[i].Text = item.Name;
-                    i++;
-                    object o = Convert.ChangeType(allTextBoxes[i].Text, type);
-                    item.SetValue(objects[listBoxObj.SelectedIndex], o);
-                    i++;
-                }
-                foreach (FieldInfo item in NewObjectFields1)
-                {
-                    int index = humanArr.FindIndex(element => element == item.FieldType);
-                    if (index != -1)
-                    {
-                        int j = 0;
-                        Fact subObject = humanFactories[index].CreateHuman();
-                        Type subObjectType = subObject.GetType();
-                        PropertyInfo[] subObjectProperties = subObjectType.GetProperties();
-
-                        foreach (PropertyInfo subItem in subObjectProperties)
-                        {
-                            Type type = subItem.PropertyType;
-                            j++;
-                            object o = Convert.ChangeType(allTextBoxes[j].Text, type);
-                            subItem.SetValue(subObject, o);
-                            j++;
-                        }
-                        item.SetValue(objects[listBoxObj.SelectedIndex], subObject);
-                    }
-                    else
-                    {
-                        Type type = item.FieldType;
-                        allTextBoxes[i].Text = item.Name;
-                        i++;
-                        object o = Convert.ChangeType(allTextBoxes[i].Text, type);
-                        item.SetValue(objects[listBoxObj.SelectedIndex], o);
-                        i++;
-                    }
-                }        */        
+                }                
                 try
                 {
                     int selectedIndex = listBoxObj.SelectedIndex;

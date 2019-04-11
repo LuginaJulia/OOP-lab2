@@ -58,9 +58,9 @@
             // listBoxObj
             // 
             this.listBoxObj.FormattingEnabled = true;
-            this.listBoxObj.Location = new System.Drawing.Point(612, 12);
+            this.listBoxObj.Location = new System.Drawing.Point(398, 12);
             this.listBoxObj.Name = "listBoxObj";
-            this.listBoxObj.Size = new System.Drawing.Size(176, 95);
+            this.listBoxObj.Size = new System.Drawing.Size(390, 134);
             this.listBoxObj.TabIndex = 2;
             this.listBoxObj.Click += new System.EventHandler(this.listBoxObj_Click);
             // 
