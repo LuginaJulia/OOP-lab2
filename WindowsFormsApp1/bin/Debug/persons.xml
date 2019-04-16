@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<ArrayOfFact xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Fact xsi:type="Group">
+    <curator>
+      <LastName>Оношко</LastName>
+      <FirstName>Дмитрий</FirstName>
+      <Patronymic>Евгеньевич</Patronymic>
+      <Subject>ОАИП</Subject>
+      <Email>-</Email>
+    </curator>
+    <starosta>
+      <LastName>Лугина</LastName>
+      <FirstName>Юлия</FirstName>
+      <Patronymic>Михайловна</Patronymic>
+      <number>751002</number>
+      <gpa>9</gpa>
+    </starosta>
+    <number>751002</number>
+  </Fact>
+</ArrayOfFact>

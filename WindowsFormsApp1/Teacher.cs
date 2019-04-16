@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    class Teacher : Human
+    [Serializable]
+    public class Teacher : Human
     {
         public string Subject { get; set; }
         public string Email { get; set; }

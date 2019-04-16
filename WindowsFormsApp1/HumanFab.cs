@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    abstract class FactCreator
+    public abstract class FactCreator
     {
         abstract public Fact CreateHuman();
     }

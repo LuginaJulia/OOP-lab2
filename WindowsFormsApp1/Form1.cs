@@ -8,16 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
+using System.IO;
+using System.Collections;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml.Serialization;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.Runtime.Serialization.Json;
+
 
 namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        List<FactCreator> humanFactories = new List<FactCreator>();
-        List<Fact> objects = new List<Fact>();
+        public static List<FactCreator> humanFactories = new List<FactCreator>();
+        public static List<Fact> objects = new List<Fact>();
         List<Control> allTextBoxes = new List<Control>();
         Fact newObject;
-        List<Type> humanArr = new List<Type>();
+        public static List<Type> humanArr = new List<Type>();
 
         public Form1()
         {
@@ -161,11 +169,12 @@ namespace WindowsFormsApp1
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            Type newObjectType = newObject.GetType();
-            FieldInfo[] NewObjectFields = newObjectType.GetFields();
-            int i = 0;
             try
             {
+                Type newObjectType = newObject.GetType();
+                FieldInfo[] NewObjectFields = newObjectType.GetFields();
+                int i = 0;
+            
                 PropertyInfo[] NewObjectProperties = newObjectType.GetProperties();
                 foreach (PropertyInfo item in NewObjectProperties)
                 {
@@ -291,7 +300,6 @@ namespace WindowsFormsApp1
                 int left = 200;
                 int delta = 25;
                 int top = 0;
-                MessageBox.Show(System.Convert.ToString(listBoxObj.SelectedIndex));
                 Type newObjectType = objects[listBoxObj.SelectedIndex].GetType(); 
                 FieldInfo[] NewObjectFields = newObjectType.GetFields();
                 PropertyInfo[] NewObjectProperties = newObjectType.GetProperties();
@@ -350,6 +358,54 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("Ошибка!");
             }
+        }
+
+        private void Clear()
+        {
+            listBoxObj.Items.Clear();
+            objects.Clear();
+        }
+        
+        private void btn_save_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dlg = new SaveFileDialog
+            {
+                FileName = "Fact",
+                Filter = "Encoded Binary data (*.bin)|*.bin|Encoded XML file(*.xml)|*.xml|Encoded Text file(*.txt)|*.txt"
+            };
+            if (dlg.ShowDialog() == DialogResult.Cancel)
+                return;
+            NewSerializer newSerializer = new NewSerializer();
+            
+            newSerializer.GetfileName_Serialization(dlg.FileName).Serialize(objects, dlg.FileName);
+            
+        }
+        
+        private void btn_open_Click(object sender, EventArgs e)
+        {
+            var dlg = new OpenFileDialog();
+            dlg.Filter = "Any file(xml,bin,txt or their encoded versions)|*.*";
+
+            if (dlg.ShowDialog() == DialogResult.Cancel)
+                return;
+            NewSerializer newSerializer = new NewSerializer();
+            Clear();
+            List<Fact> newList = null;
+            newList = (List<Fact>)newSerializer.GetfileName_Serialization(dlg.FileName).Deserialize(typeof(List<Fact>), dlg.FileName);
+
+            foreach (Fact obj in newList)
+            {
+                Type newObjectType = obj.GetType();
+                try
+                {
+                    listBoxObj.Items.Add(obj.ToString() + ' ' + newObjectType.GetProperty("LastName").GetValue(obj).ToString());
+                }
+                catch
+                {
+                    listBoxObj.Items.Add(obj.ToString() + ' ' + newObjectType.GetProperty("number").GetValue(obj).ToString());
+                }
+                objects.Add(obj);
+            }            
         }
     }
 }

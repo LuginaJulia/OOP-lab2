@@ -3,13 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace WindowsFormsApp1
 {
-    abstract class Fact
+    [Serializable]
+    [XmlInclude(typeof(Human))]
+    [XmlInclude(typeof(Teacher))]
+    [XmlInclude(typeof(Student))]
+    [XmlInclude(typeof(Professor))]
+    [XmlInclude(typeof(Group))]
+    public abstract class Fact
     {
+
     }
-    class Human : Fact
+    [Serializable]
+    public class Human : Fact
     {
         public string LastName { get; set; }
         public string FirstName { get; set; }

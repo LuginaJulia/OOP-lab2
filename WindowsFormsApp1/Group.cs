@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    class Group : Fact
+    [Serializable]
+    public class Group : Fact
     {
         public int number { get; set; }
         public Teacher curator;

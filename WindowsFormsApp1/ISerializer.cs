@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    [Serializable]
-    public class Professor : Human
+    public interface ISerializer
     {
-        public int pubs { get; set; }
-        public Professor()
-        {
-        }
+        void Serialize(List<Fact> value, string path);
+        object Deserialize(Type value, string path);
     }
 }

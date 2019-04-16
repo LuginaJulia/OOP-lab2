@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    class Student : Human
+    [Serializable]
+    public class Student : Human
     {
         public string number { get; set; }
         public float gpa { get; set; }

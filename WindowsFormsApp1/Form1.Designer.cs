@@ -33,6 +33,9 @@
             this.listBoxObj = new System.Windows.Forms.ListBox();
             this.btn_edit = new System.Windows.Forms.Button();
             this.btn_remove = new System.Windows.Forms.Button();
+            this.btn_save = new System.Windows.Forms.Button();
+            this.btn_open = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // comboBoxClasses
@@ -58,9 +61,9 @@
             // listBoxObj
             // 
             this.listBoxObj.FormattingEnabled = true;
-            this.listBoxObj.Location = new System.Drawing.Point(398, 12);
+            this.listBoxObj.Location = new System.Drawing.Point(582, 12);
             this.listBoxObj.Name = "listBoxObj";
-            this.listBoxObj.Size = new System.Drawing.Size(390, 134);
+            this.listBoxObj.Size = new System.Drawing.Size(308, 134);
             this.listBoxObj.TabIndex = 2;
             this.listBoxObj.Click += new System.EventHandler(this.listBoxObj_Click);
             // 
@@ -84,11 +87,37 @@
             this.btn_remove.UseVisualStyleBackColor = true;
             this.btn_remove.Click += new System.EventHandler(this.btn_remove_Click);
             // 
+            // btn_save
+            // 
+            this.btn_save.Location = new System.Drawing.Point(12, 185);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(95, 23);
+            this.btn_save.TabIndex = 6;
+            this.btn_save.Text = "Сохранить";
+            this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
+            // 
+            // btn_open
+            // 
+            this.btn_open.Location = new System.Drawing.Point(12, 214);
+            this.btn_open.Name = "btn_open";
+            this.btn_open.Size = new System.Drawing.Size(95, 23);
+            this.btn_open.TabIndex = 7;
+            this.btn_open.Text = "Открыть...";
+            this.btn_open.UseVisualStyleBackColor = true;
+            this.btn_open.Click += new System.EventHandler(this.btn_open_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(919, 450);
+            this.Controls.Add(this.btn_open);
+            this.Controls.Add(this.btn_save);
             this.Controls.Add(this.btn_remove);
             this.Controls.Add(this.btn_edit);
             this.Controls.Add(this.listBoxObj);
@@ -108,6 +137,9 @@
         private System.Windows.Forms.ListBox listBoxObj;
         private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.Button btn_remove;
+        private System.Windows.Forms.Button btn_save;
+        private System.Windows.Forms.Button btn_open;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
